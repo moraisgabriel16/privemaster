@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Prive Master |Massagens Sensuais Premium</title>
+  <title>Prive Master | Massagens Sensuais Premium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
   <style>
     * {
       margin: 0;
@@ -18,59 +17,87 @@
       font-family: 'Montserrat', sans-serif;
       background-color: #0a0a0a;
       color: #e0e0e0;
-      line-height: 1.5;
+      line-height: 1.6;
       margin: 0;
     }
     header {
       position: relative;
       height: 100vh;
-      min-height: 680px;
+      min-height: 520px;
       background: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.88)),
-                  url('header.jpg') center/cover no-repeat fixed;
+                  url('midias/header.jpg') center/cover no-repeat;
+      background-attachment: scroll;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 0 20px;
+      padding: 0 15px;
+      overflow: hidden;
     }
+    .main-nav {
+      position: absolute;
+      top: 24px;
+      right: 30px;
+      z-index: 3;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      font-weight: 500;
+    }
+    .main-nav a {
+      color: #e8e8e8;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background .22s ease, color .22s ease;
+    }
+    .main-nav a:hover { background: rgba(212,175,55,0.12); color: #d4af37; }
     .logo-container {
-      max-width: 800px;
+      max-width: 1100px;
+      width: min(1100px, 92%);
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
     }
     .main-title {
       font-family: 'Playfair Display', serif;
-      font-size: 7.2rem;
+      font-size: clamp(4rem, 10vw, 7.2rem);
       font-weight: 500;
       color: #d4af37;
-      letter-spacing: 6px;
+      letter-spacing: clamp(4px, 1vw, 6px);
       text-shadow: 0 4px 30px rgba(212,175,55,0.35);
       line-height: 0.95;
     }
     .main-title .prive {
       display: block;
-      font-size: 8.5rem;
+      font-size: clamp(5rem, 12vw, 8.5rem);
       font-weight: 700;
     }
     .main-title .separator {
-      font-size: 5rem;
+      font-size: clamp(3rem, 8vw, 5rem);
       font-weight: 300;
       color: #b89750;
-      margin: 0 20px;
+      margin: 0 15px;
       vertical-align: middle;
     }
     .tagline {
-      font-size: 1.45rem;
+      font-size: clamp(1.1rem, 4vw, 1.45rem);
       font-weight: 300;
       color: #c0c0c0;
-      margin: 35px 0 55px;
-      letter-spacing: 2.5px;
+      margin: 25px 0 45px;
+      letter-spacing: 2px;
       opacity: 0.9;
     }
     .cta-button {
       display: inline-block;
       background: #d4af37;
       color: #111;
-      padding: 16px 70px;
-      font-size: 1.35rem;
+      padding: clamp(12px, 4vw, 16px) clamp(40px, 8vw, 70px);
+      font-size: clamp(1.1rem, 4vw, 1.35rem);
       font-weight: 500;
       text-decoration: none;
       border-radius: 50px;
@@ -83,169 +110,160 @@
       box-shadow: 0 15px 40px rgba(212,175,55,0.4);
     }
     section {
-      padding: 110px 20px;
+      padding: clamp(80px, 10vw, 110px) 15px;
       margin: 0 auto;
+      max-width: 1200px;
     }
     h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 3.6rem;
+      font-size: clamp(2.5rem, 8vw, 3.6rem);
       color: #d4af37;
       text-align: center;
-      margin-bottom: 55px;
+      margin-bottom: clamp(40px, 8vw, 55px);
       position: relative;
     }
     h2::after {
       content: '';
-      width: 130px;
+      width: clamp(100px, 20vw, 130px);
       height: 3px;
       background: #d4af37;
       display: block;
       margin: 20px auto 0;
     }
     
-    /* Seção de Serviços com fundo full-width */
+    /* Seção Serviços com servicos.jpg full-bleed (corrige problemas de 100vw) */
     #servicos {
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
-      background: linear-gradient(rgba(10,10,10,0.75), rgba(10,10,10,0.85)),
-                  url('https://purespadirect.com/cdn/shop/articles/shutterstock_1788967013.jpg?v=1704672208') center/cover no-repeat fixed;
       position: relative;
-      padding: 140px 5% 120px;
+      padding: clamp(100px, 12vw, 140px) 5% clamp(80px, 10vw, 120px);
+      overflow: hidden;
     }
+    /* background layer that spans full viewport width without shifting content */
     #servicos::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
+      top: 0;
+      left: 50%;
+      width: 100vw;
+      height: 100%;
+      transform: translateX(-50%);
+      background-image: linear-gradient(rgba(10,10,10,0.78), rgba(10,10,10,0.88)), url('midias/servicos.jpg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
       z-index: 0;
     }
     #servicos > * {
       position: relative;
       z-index: 1;
       max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 45px;
-    }
-    .service-card {
-      background: rgba(22,22,22,0.92);
-      padding: 40px 30px;
-      border-radius: 12px;
-      text-align: center;
-      border: 1px solid #2a2a2a;
-      transition: all 0.4s ease;
-      backdrop-filter: blur(4px);
-    }
-    .service-card:hover {
-      transform: translateY(-12px);
-      border-color: #d4af37;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.75);
-    }
-    .service-card h3 {
-      color: #d4af37;
-      font-size: 1.9rem;
-      margin-bottom: 20px;
-    }
-
-    /* Nova seção das meninas - cards com fotos reais da internet */
-    #equipe {
-      background: #0d0d0d;
-      padding: 140px 20px 120px;
-    }
-    .equipe-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 50px;
-      max-width: 1200px;
       margin: 0 auto;
     }
-    .menina-card {
-      background: rgba(22,22,22,0.92);
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid #2a2a2a;
-      transition: all 0.4s ease;
+    .services-grid {
+      display: grid;
+      gap: clamp(28px, 5vw, 40px);
+      grid-template-columns: repeat(3, 1fr);
+      align-items: stretch;
+      align-content: start;
+    }
+    /* Responsive fallback for narrower viewports */
+    @media (max-width: 1100px) {
+      .services-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    }
+    .service-card {
+      background: linear-gradient(180deg, rgba(20,20,20,0.96), rgba(16,16,16,0.88));
+      padding: clamp(28px, 4.5vw, 44px);
+      border-radius: 14px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      border: 1px solid rgba(60,60,60,0.6);
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: clamp(360px, 38vh, 460px);
     }
-    .menina-card:hover {
-      transform: translateY(-15px);
-      border-color: #d4af37;
-      box-shadow: 0 25px 60px rgba(212,175,55,0.2);
+    .service-card:hover {
+      transform: translateY(-10px) scale(1.01);
+      border-color: rgba(212,175,55,0.9);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 8px 28px rgba(212,175,55,0.06);
     }
-    .menina-foto {
-      height: 380px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
+    .service-card h3 {
+      color: #f0d585;
+      font-size: clamp(1.6rem, 3.6vw, 2.1rem);
+      margin-bottom: 18px;
+      line-height: 1.15;
+      font-weight:700;
     }
-    .menina-foto::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 40%);
+    .service-card p {
+      font-size: clamp(0.95rem, 2.6vw, 1.05rem);
+      color: #d6d6d6;
+      margin: 0 auto;
+      max-width: 46ch;
+      line-height: 1.6;
+      flex: 1 1 auto;
+      display: block;
     }
-    .menina-nome {
-      position: absolute;
-      bottom: 20px;
-      left: 0;
-      right: 0;
-      color: #d4af37;
-      font-size: 1.6rem;
+    .service-cta {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 10px 22px;
+      border-radius: 28px;
+      background: transparent;
+      color: #f5e9c1;
+      border: 1px solid rgba(212,175,55,0.95);
+      text-decoration: none;
       font-weight: 600;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-      font-family: 'Playfair Display', serif;
+      transition: background .22s ease, color .22s ease, transform .22s ease;
+      align-self: center;
     }
-    .menina-info {
-      padding: 25px 20px;
-    }
-    .menina-info p {
-      color: #b0b0b0;
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-    .menina-especialidade {
-      color: #e0c070;
-      font-weight: 500;
-      font-size: 1.1rem;
-    }
+    .service-cta:hover { background: rgba(212,175,55,0.14); color: #111; transform: translateY(-3px); }
 
     footer {
       background: #000;
       text-align: center;
-      padding: 70px 20px 40px;
-      font-size: 0.95rem;
+      padding: clamp(50px, 10vw, 70px) 15px clamp(30px, 6vw, 40px);
+      font-size: clamp(0.85rem, 3vw, 0.95rem);
       color: #888;
     }
     .contact-info a {
       color: #d4af37;
       text-decoration: none;
-      margin: 0 18px;
-      font-size: 1.3rem;
+      margin: 0 clamp(10px, 4vw, 18px);
+      font-size: clamp(1.1rem, 4vw, 1.3rem);
     }
     .contact-info a:hover {
       text-decoration: underline;
     }
+
     @media (max-width: 768px) {
-      .main-title { font-size: 5.2rem; }
-      .main-title .prive { font-size: 6.2rem; }
-      .main-title .separator { font-size: 3.8rem; margin: 0 12px; }
-      .tagline { font-size: 1.25rem; margin: 25px 0 45px; }
-      .cta-button { padding: 14px 55px; font-size: 1.2rem; }
-      #servicos { padding: 100px 15px 80px; }
-      .menina-foto { height: 320px; }
+      header { min-height: 80vh; padding: 0 10px; }
+      .main-title { line-height: 1; }
+      .tagline { margin: 20px 0 35px; }
+      section { padding: 80px 10px; }
+      .services-grid { gap: 30px; }
+    }
+    @media (max-width: 480px) {
+      .main-title { font-size: 3.8rem; }
+      .main-title .prive { font-size: 4.5rem; }
+      .main-title .separator { font-size: 3rem; margin: 0 8px; }
+      .cta-button { width: 90%; text-align: center; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Coloque suas mídias na pasta `midias/` com os nomes: header.jpg, servicos.jpg e os vídeos/imagem da galeria -->
+
   <header>
+    <nav class="main-nav">
+      <a href="#">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contato">Contato</a>
+    </nav>
     <div class="logo-container">
       <div class="main-title">
         <span class="prive">Prive</span>
@@ -253,7 +271,7 @@
         <span>Master</span>
       </div>
       <div class="tagline">A Arte do Prazer com Discrição e Sofisticação</div>
-      <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20agendar%20uma%20experiência%20exclusiva" 
+      <a href="https://wa.me/553488275461?text=Olá!%20Gostaria%20de%20agendar%20uma%20experiência%20exclusiva" 
          class="cta-button" target="_blank">
         Agende Agora
       </a>
@@ -262,73 +280,66 @@
 
   <section id="servicos">
     <h2>Nossos Serviços</h2>
+    <p class="services-sub" style="text-align:center;max-width:880px;margin:0 auto 36px;color:#d2c8a1;font-weight:300;">Experiências cuidadosamente desenhadas para relaxar o corpo, despertar os sentidos e levar você a momentos de puro prazer e exclusividade. Escolha sua experiência e agende com discrição.</p>
     <div class="services-grid">
       <div class="service-card">
         <h3>Massagem Relaxante Tântrica</h3>
-        <p>Experiência profunda de conexão corporal e energética com toques suaves que despertam todos os sentidos.</p>
+        <p>Toques profundos e sincronizados que liberam tensões, equilibram sua energia e promovem relaxamento total.</p>
+        <a class="service-cta" href="https://wa.me/553488275461?text=Quero%20agendar%20Massagem%20Relaxante%20Tântrica">Agende</a>
       </div>
       <div class="service-card">
         <h3>Massagem com Final Feliz</h3>
-        <p>Relaxamento muscular completo seguido de um final especial e personalizado para plena satisfação.</p>
+        <p>Sessão completa de relaxamento seguida de um final personalizado, pensado para seu prazer e satisfação máxima.</p>
+        <a class="service-cta" href="https://wa.me/553488275461?text=Quero%20agendar%20Massagem%20com%20Final%20Feliz">Agende</a>
       </div>
       <div class="service-card">
         <h3>Experiência 4 Mãos</h3>
-        <p>Duas massagistas em perfeita sincronia, proporcionando sensação única de prazer intenso.</p>
+        <p>Dupla de massagistas em perfeita sincronia, oferecendo toque amplificado que potencializa sensações.</p>
+        <a class="service-cta" href="https://wa.me/553488275461?text=Quero%20agendar%20Experiência%204%20Mãos">Agende</a>
       </div>
       <div class="service-card">
         <h3>Programa VIP Master</h3>
-        <p>Atendimento exclusivo com massagista premium, ambiente privativo e mimos especiais.</p>
+        <p>Atendimento premium: massagista exclusiva, ambiente privativo e mimos selecionados para uma experiência única.</p>
+        <a class="service-cta" href="https://wa.me/553488275461?text=Quero%20agendar%20Programa%20VIP%20Master">Agende</a>
+      </div>
+      <div class="service-card">
+        <h3>Massagem Sensual Terapêutica</h3>
+        <p>Combina técnicas terapêuticas e sensuais para relaxar profundamente e renovar suas sensações, com cuidado total à sua privacidade.</p>
+        <a class="service-cta" href="https://wa.me/553488275461?text=Quero%20agendar%20Massagem%20Sensual%20Terapêutica">Agende</a>
+      </div>
+      <div class="service-card">
+        <h3>Sessão Couple Privada</h3>
+        <p>Atendimento exclusivo para casais: ambiente íntimo, atendimento sincronizado e roteiros personalizados para uma experiência compartilhada.</p>
+        <a class="service-cta" href="https://wa.me/553488275461?text=Quero%20agendar%20Sessão%20Couple%20Privada">Agende</a>
       </div>
     </div>
   </section>
 
-  <section id="equipe">
-    <h2>Nossas Massagistas Exclusivas</h2>
-    <div class="equipe-grid">
-      <div class="menina-card">
-        <div class="menina-foto" style="background-image: url('https://img.freepik.com/premium-photo/feeling-playful-tonight-top-view-beautiful-young-brown-hair-woman-black-lingerie-lying-bed-holding-hand-hair_425904-28897.jpg?w=740');">
-          <div class="menina-nome">Lara</div>
-        </div>
-        <div class="menina-info">
-          <p class="menina-especialidade">Especialista em Tântrica & 4 Mãos</p>
-          <p>Toques profundos, energia sensual e final inesquecível. Discrição total.</p>
-        </div>
+  <section id="galeria" style="background:#060606;">
+    <h2>Galeria</h2>
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;padding:10px;">
+      <div style="background:#0b0b0b;padding:12px;border-radius:10px;text-align:center;">
+        <img src="midias/WhatsApp Image 2026-02-20 at 20.34.35.jpeg" alt="Imagem" style="width:100%;height:auto;border-radius:8px;">
       </div>
-
-      <div class="menina-card">
-        <div class="menina-foto" style="background-image: url('https://img.freepik.com/premium-photo/gorgeous-beauty-beautiful-young-brown-hair-woman-holding-hand-hair-looking-you-while-lying-bed_425904-28886.jpg?w=740');">
-          <div class="menina-nome">Sofia</div>
-        </div>
-        <div class="menina-info">
-          <p class="menina-especialidade">Final Feliz Premium</p>
-          <p>Corpo escultural, movimentos precisos e prazer personalizado. VIP only.</p>
-        </div>
+      <div style="background:#0b0b0b;padding:12px;border-radius:10px;text-align:center;">
+        <video controls style="width:100%;height:auto;border-radius:8px;">
+          <source src="midias/WhatsApp Video 2026-02-20 at 20.34.34 (1).mp4" type="video/mp4">
+          Seu navegador não suporta vídeo.
+        </video>
       </div>
-
-      <div class="menina-card">
-        <div class="menina-foto" style="background-image: url('https://www.shutterstock.com/shutterstock/photos/2543881433/display_1500/stock-photo-female-beauty-portrait-african-american-ethnic-woman-model-beautiful-attractive-girl-with-perfect-2543881433.jpg');">
-          <div class="menina-nome">Isabella</div>
-        </div>
-        <div class="menina-info">
-          <p class="menina-especialidade">Massagem com Mimos Especiais</p>
-          <p>Sensualidade intensa, óleos quentes e atenção exclusiva. Venha descobrir.</p>
-        </div>
+      <div style="background:#0b0b0b;padding:12px;border-radius:10px;text-align:center;">
+        <video controls style="width:100%;height:auto;border-radius:8px;">
+          <source src="midias/WhatsApp Video 2026-02-20 at 20.34.34.mp4" type="video/mp4">
+          Seu navegador não suporta vídeo.
+        </video>
       </div>
-
-      <div class="menina-card">
-        <div class="menina-foto" style="background-image: url('https://i0.wp.com/takeonethingoff.com/wp-content/uploads/2023/03/miguel-salgado-agvoJ0dIxZ4-unsplash.jpg?ssl=1');">
-          <div class="menina-nome">Valentina</div>
-        </div>
-        <div class="menina-info">
-          <p class="menina-especialidade">Experiência Completa</p>
-          <p>Beleza natural, técnica apurada e prazer sem limites. Agende sua sessão.</p>
-        </div>
+      <div style="background:#0b0b0b;padding:12px;border-radius:10px;text-align:center;">
+        <video controls style="width:100%;height:auto;border-radius:8px;">
+          <source src="midias/WhatsApp Video 2026-02-20 at 20.34.35.mp4" type="video/mp4">
+          Seu navegador não suporta vídeo.
+        </video>
       </div>
     </div>
-
-    <p style="text-align: center; margin-top: 60px; font-size: 1.2rem; color: #b89750; font-style: italic;">
-      Perfis atualizados diariamente. Escolha sua preferida no WhatsApp e viva a experiência Prive Master.
-    </p>
   </section>
 
   <section id="diferenciais" style="background:#0d0d0d;">
@@ -344,11 +355,11 @@
 
   <footer>
     <div class="contact-info" style="margin-bottom:45px;">
-      <a href="https://wa.me/5511999999999" target="_blank">WhatsApp</a> •
-      <a href="tel:+5511999999999">Ligue Agora</a>
+      <a href="https://wa.me/553488275461" target="_blank">WhatsApp</a>
     </div>
     <p>Prive Master © 2026 | Experiência Adulta Premium | +18 | Todos os direitos reservados.</p>
   </footer>
 
 </body>
+
 </html>
